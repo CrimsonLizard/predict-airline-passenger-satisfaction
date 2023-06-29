@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Airline Passenger Satisfaction</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main_page_style.css') }}" type="text/css"/>
+</head>
+<body>
+  <div class="testbox">
+    <form action="/predict" method="POST">
+      <div class="banner">
+        <h1>Airline Passenger Satisfaction</h1>
+      </div>
+      <h2 style="text-align: center;">Fill out the following form to predict passenger satisfaction</h2>
+     
+      {% if error_message %}
+      <div class="error-message">{{ error_message }}</div>
+      {% endif %}
+      
+
+<div class="center-container">
+  <div class="grid-container">
+      <div class="item">
+        <label for="customer_type">Customer loyalty level</label>
+        <br>
+        <select id="customer_type" name="customer_type" required>
+          <option disabled selected value>-- select an option --</option>
+          <option value="Loyal customer">Loyal customer</option>
+          <option value="Disloyal customer">Disloyal customer</option>
+        </select>
+      </div>
+
+      <div class="item">
+        <label for="type_of_travel">Travel purpose</label>
+        <br>
+        <select id="type_of_travel" name="type_of_travel" required>
+          <option disabled selected value>-- select an option --</option>
+          <option value="Personal travel">Personal travel</option>
+          <option value="Business travel">Business travel</option>
+        </select>
+      </div>
+
+      <div class="item">
+        <label for="class_of_travel">Travel class</label>
+        <br>
+        <select id="class_of_travel" name="class_of_travel" required>
+          <option disabled selected value>-- select an option --</option>
+          <option value="Eco plus">Eco plus</option>
+          <option value="Business">Business</option>
+          <option value="Eco">Eco</option>
+        </select>
+      </div>
+
+      <div class="item">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" min="0" max="120" required>
+      </div>
+
+     <div class="slidecontainer">
+        <label class="slider-label" for="inflight_wifi_service">Inflight wifi service</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="5" value="1" class="slider" id="inflight_wifi_service" oninput="updateSliderValue(this.id, this.nextSibling.id)">
+          <span class="slider-value" id="inflight_wifi_serviceValue">0</span>
+        </div>
+      </div>
+
+      <div class="slidecontainer">
+        <label class="slider-label" for="gate_location">Gate location</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="5" value="1" class="slider" id="gate_location" oninput="updateSliderValue(this.id, this.nextSibling.id)">
+          <span class="slider-value" id="gate_locationValue">0</span>
+        </div>
+      </div>
+
+      <div class="slidecontainer">
+        <label class="slider-label" for="online_boarding">Online boarding</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="5" value="1" class="slider" id="online_boarding" oninput="updateSliderValue(this.id, this.nextSibling.id)">
+          <span class="slider-value" id="online_boardingValue">0</span>
+        </div>
+      </div>
+
+      <div class="slidecontainer">
+        <label class="slider-label" for="seat_comfort">Seat comfort</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="5" value="1" class="slider" id="seat_comfort" oninput="updateSliderValue(this.id, this.nextSibling.id)">
+          <span class="slider-value" id="seat_comfortValue">0</span>
+        </div>
+      </div>
+
+      <div class="slidecontainer">
+        <label class="slider-label" for="inflight_entertainment">Inflight entertainment</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="5" value="1" class="slider" id="inflight_entertainment" oninput="updateSliderValue(this.id, this.nextSibling.id)">
+          <span class="slider-value" id="inflight_entertainmentValue">0</span>
+        </div>
+      </div>
+
+      <div class="slidecontainer">
+        <label class="slider-label" for="on_board_service">Onboard service</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="5" value="1" class="slider" id="on_board_service" oninput="updateSliderValue(this.id, this.nextSibling.id)">
+          <span class="slider-value" id="on_board_serviceValue">0</span>
+        </div>
+      </div>
+
+      <div class="slidecontainer">
+        <label class="slider-label" for="baggage_handling">Baggage handling</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="5" value="1" class="slider" id="baggage_handling" oninput="updateSliderValue(this.id, this.nextSibling.id)">
+          <span class="slider-value" id="baggage_handlingValue">0</span>
+        </div>
+      </div>
+
+      <div class="slidecontainer">
+        <label class="slider-label" for="checkin_service">Check-in service</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="5" value="1" class="slider" id="checkin_service" oninput="updateSliderValue(this.id, this.nextSibling.id)">
+          <span class="slider-value" id="checkin_serviceValue">0</span>
+        </div>
+      </div>
+
+      <div class="slidecontainer">
+        <label class="slider-label" for="inflight_service">Inflight service</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="5" value="1" class="slider" id="inflight_service" oninput="updateSliderValue(this.id, this.nextSibling.id)">
+          <span class="slider-value" id="inflight_serviceValue">0</span>
+        </div>
+      </div>
+
+      <div class="slidecontainer">
+        <label class="slider-label" for="cleanliness">Cleanliness</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="5" value="1" class="slider" id="cleanliness" oninput="updateSliderValue(this.id, this.nextSibling.id)">
+          <span class="slider-value" id="cleanlinessValue">0</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <div class="btn-block">
+      {% if not customer_type or not type_of_travel or not class_of_travel %}
+      <p class="error-message"></p>
+      {% endif %}
+      <button type="submit" href="/">SUBMIT</button>
+    </div>
+  
+    </form>
+  </div>
+  
+
+  
+  <script src="../static/form_interaction_script.js"></script>
+
+</body>
+</html>
