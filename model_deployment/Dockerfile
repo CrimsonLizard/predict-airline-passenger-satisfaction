@@ -21,7 +21,7 @@ COPY static/ static/
 COPY templates/ templates/
 COPY tests/ tests/
 
-# Expose the port 5000 from the container
+# Expose the port 9696 from the container
 EXPOSE 9696
 
 # Start the Flask application
