@@ -1,96 +1,116 @@
+/* General styles */
 html, body {
   min-height: 100%;
+  margin: 0;
+  padding: 0;
   background-color: #87CEFA;
 }
-body, div, form, input, select, textarea { 
+
+body, div, form, input, select, textarea {
   padding: 0;
   margin: 0;
   outline: none;
-  font: 14px/8px Arial;
+  font: 1.2vh/0.5vh Arial;
   color: #666;
 }
 
-label{ 
+label {
   padding: 0;
   margin: 0;
   outline: none;
   font-family: Arial;
-  font-size: 16px;
+  font-size: 2vh;
   font-weight: bold;
   color: #666;
-  line-height: 8px;
+  line-height: 0.1vh;
 }
 
+/* Header styles */
 h1 {
   margin: 0;
-  font-size: 50px;
+  font-size: 5vh;
   color: #fff;
   z-index: 2;
-  line-height: 83px;
+  line-height: 3.5vh;
+  position: relative;
+  margin-bottom: 1vh;
 }
 
 h2 {
   color: #666;
   font-family: Arial;
+  font-size: 2.5vh;
+  line-height: 0.5vh;
+  margin-bottom: 4vh;
 }
 
+/* Container styles */
 .testbox {
   display: flex;
   justify-content: center;
   align-items: center;
   height: inherit;
-  padding: 50px;
+  padding: 2vh;
 }
+
 form {
-  width: 100%;
-  padding: 20px;
-  border-radius: 6px;
-  background: #fff; 
+  width: 170vh;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2vh;
+  border-radius: 0.5vh;
+  background: #fff;
+  position: relative;
 }
+
+/* Banner styles */
 .banner {
   position: relative;
-  height: 300px;
-  background-image: url("../images/plane.jpg");  
+  height: 40vh;
+  background-image: url("../images/plane.jpg");
   background-size: cover;
-  background-position: 20%-15px; 
+  background-repeat: no-repeat;
+  background-position: right center;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
+/* Input styles */
 input, select, textarea {
-  margin-bottom: 12px;
+  margin-bottom: 1vh;
   border: 1px solid #ccc;
-  border-radius: 3px;
-}
-input {
-  width: 400px;
-  padding: 5px;
+  border-radius: 0.5vh;
+  max-width: 100%;
+  width: 40vh;
+  padding: 0.5vh;
+  box-sizing: border-box;
 }
 
-input[type=radio]:checked + label:after {
-  opacity: 1;
-}
+/* Button styles */
 .btn-block {
-  margin-top: 10px;
+  grid-column: 1 / span 2;
   text-align: center;
 }
+
 button {
-  width: 150px;
-  padding: 10px;
+  width: 20vh;
+  padding: 1vh;
   border: none;
-  border-radius: 5px; 
+  border-radius: 0.5vh;
   background: #010225d5;
-  font-size: 16px;
+  font-size: 2vh;
   color: #fff;
   cursor: pointer;
 }
 
+/* Slider styles */
 label.slider-label {
   display: block;
-  font-size: 16px;
-  margin-bottom: 5px;
+  font-size: 1.8vh;
+  margin-bottom: 0.2vh;
 }
 
 .slider-container {
@@ -104,58 +124,79 @@ label.slider-label {
   position: absolute;
   top: 50%;
   left: 0;
-  width: calc(var(--value, 0) * 20%);
-  height: 4px;
+  width: calc(var(--value, 0) * 2vh);
+  height: 4vh;
   background-color: #1a37db;
-  transform: translateY(-50%);
+  transform: translateY(-50vh);
   z-index: 1;
 }
 
 .slider-value {
-  margin-left: 10px;
-  font-size: 16px;
+  margin-left: 1vh;
+  font-size: 1.8vh;
   color: #666;
   position: relative;
   z-index: 2;
 }
 
-input#passenger_age {
-  width: 400px; 
-  height: 22px;
-}
+/* Form item styles */
 .item {
-  margin-bottom: 5px;
+  margin-bottom: 0.1vh;
 }
+
+/* Form select windows label styles */
 label {
   display: block;
-  font-size: 16px;
-  margin-bottom: 5px;
+  font-size: 1.8vh;
+  margin-bottom: 1vh;
 }
 
+/* Select styles */
 select {
-  width: 410px;
-  height: 22px;
+  width: 40vh;
+  height: 2.5vh;
 }
 
+/* Center container styles */
 .center-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh; 
+  height: 80vh;
 }
 
+/* Grid container styles */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 10px; 
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2vh;
 }
 
+/* Error message styles */
 .error-message {
   color: rgb(216, 40, 40);
   text-align: center;
-  font-size: 18px; 
-  font-weight:bold;
-  line-height: 3px;
+  font-size: 2vh;
+  font-weight: bold;
+  line-height: 3vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1000px) {
+  h1, h2, label, label.slider-label {
+    font-size: 1.5vh;
+    line-height: 2vh;
+  }
   
+  .banner {
+    height: 15vh;
+    background-size: contain;
+  }
   
+  form {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
 }
