@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Airline Passenger Satisfaction</title>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main_page_style.css') }}" type="text/css"/>
 </head>
@@ -52,7 +54,7 @@
 
       <div class="item">
         <label for="age">Age</label>
-        <input type="number" id="age" name="age" min="0" max="120" required>
+        <input type="number" id="age" name="age" min="0" max="90" required>
       </div>
 
      <div class="slidecontainer">
@@ -135,20 +137,17 @@
         </div>
       </div>
 
+      <div class="btn-block">
+        {% if not customer_type or not type_of_travel or not class_of_travel %}
+        <p class="error-message"></p>
+        {% endif %}
+        <button type="submit" href="/">SUBMIT</button>
+      </div>
+    
     </div>
   </div>
-
-    <div class="btn-block">
-      {% if not customer_type or not type_of_travel or not class_of_travel %}
-      <p class="error-message"></p>
-      {% endif %}
-      <button type="submit" href="/">SUBMIT</button>
-    </div>
-  
     </form>
   </div>
-  
-
   
   <script src="../static/form_interaction_script.js"></script>
 
