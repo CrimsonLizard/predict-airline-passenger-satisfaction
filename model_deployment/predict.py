@@ -36,10 +36,10 @@ def predict():
             return redirect(url_for('main_page', error=error_message))
 
         # Preprocesses the input dictionary into a model-ready DataFrame.
-        preprocessed_passenfer_df = preprocess_data(passenger_dict)
+        preprocessed_passenger_df = preprocess_data(passenger_dict)
       
         try:
-            result = model.predict(preprocessed_passenfer_df)
+            result = model.predict(preprocessed_passenger_df)
             return render_template('/predict_page.html', prediction = result)
    
         except ValueError:
@@ -79,6 +79,8 @@ def validate_input(dictionary):
 # Preprocesses the input dictionary by mapping categorical variables,
 # reordering columns, and
 # turning string input into float.
+# Input dictionary containing passenger information.
+# Returns: preprocessed DataFrame ready for model prediction.
 
 def preprocess_data(dictionary):
     # Map categorical variables to their numeric representations.
@@ -99,6 +101,8 @@ def preprocess_data(dictionary):
 
 # Order the input dictionary according to the required column order for the LightGBM model,
 # as the last one is sensitive to the order of columns.
+# Input dictionary containing passenger information.
+# Returns: the same dictionary with reordered columns.
 
 def reorder_dict(dictionary):
     column_order = ['customer_type', 'age', 'type_of_travel', 'inflight_wifi_service', 'gate_location',
