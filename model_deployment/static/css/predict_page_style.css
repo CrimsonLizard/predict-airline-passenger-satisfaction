@@ -1,57 +1,73 @@
+/* General styles */
 html, body {
   min-height: 100%;
+  margin: 0;
+  padding: 0;
   background-color: #87CEFA;
 }
 
-body, div, form, input, select, textarea { 
+body, div, form, input, select, textarea {
   padding: 0;
   margin: 0;
   outline: none;
-  font: 14px/8px Arial;
+  font: 1.2vh/0.5vh Arial;
   color: #666;
 }
 
-
+/* Headings */
 h1 {
   margin: 0;
-  font-size: 50px;
+  font-size: 5vh;
   color: #fff;
   z-index: 2;
-  line-height: 83px;
+  line-height: 3.5vh;
+  position: relative;
+  margin-bottom: 1vh;
 }
 
 h2 {
   color: #666;
   font-family: Arial;
+  font-size: 2.5vh;
+  line-height: 1vh;
+  margin-bottom: 3vh;
 }
+
+/* Form container */
 .testbox1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
+  height: inherit;
+  padding: 2vh;
 }
 
 form {
-  width: 100%;
-  max-width: 1500px; /* Adjust the max-width to your desired value */
-  padding: 20px;
-  border-radius: 6px;
+  width: 170vh;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2vh;
+  border-radius: 0.5vh;
   background: #fff;
-  margin: 0 auto; /* Add 'margin: 0 auto;' to center the form horizontally */
+  position: relative;
 }
 
+/* Banner */
 .banner {
   position: relative;
-  height: 300px;
-  background-image: url("../images/plane.jpg");  
+  height: 30vh;
+  background-image: url("../images/plane.jpg");
   background-size: cover;
-  background-position: 20%-15px; 
+  background-repeat: no-repeat;
+  background-position: right center;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
+/* Prediction result */
 .prediction_res {
   display: flex;
   justify-content: center;
@@ -60,7 +76,7 @@ form {
 }
 
 .thumbnail {
-  margin-bottom: 20px;
+  margin-bottom: 2vh;
 }
 
 .thumbnail h2 {
@@ -70,25 +86,44 @@ form {
 .thumbnail .emoji {
   display: block;
   margin: 0 auto;
-  width: 200px;
-  height: 200px;
+  width: 20vh;
+  height: 20vh;
 }
 
+/* Button */
 .btn-block {
-  margin-top: 10px;
+  margin-top: 2vh;
   text-align: center;
 }
 
 .button {
   display: inline-block;
-  width: 150px;
-  padding: 10px;
+  width: 20vh;
+  padding: 1.5vh;
   border: none;
-  border-radius: 5px; 
+  border-radius: 5px;
   background: #010225d5;
-  font-size: 16px;
+  font-size: 2vh;
   color: #fff;
   text-decoration: none;
   text-align: center;
   cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1000px) {
+  h1, h2 {
+    font-size: 1.5vh;
+    line-height: 2vh;
+  }
+
+  .banner {
+    height: 15vh;
+    background-size: contain;
+  }
+
+  form {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
 }
