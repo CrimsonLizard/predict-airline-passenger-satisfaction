@@ -15,7 +15,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the model file and Flask app
-COPY flask_airline_best_model_21.06.2023.bin .
+COPY flask_airline_best_model_26.08.2023.bin .
 COPY predict.py .
 COPY static/ static/
 COPY templates/ templates/
