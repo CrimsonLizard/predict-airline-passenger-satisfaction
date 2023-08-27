@@ -7,6 +7,7 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 RUN pip install --no-cache-dir --upgrade pip
 
+RUN pip install scikit-learn
 RUN pip install lightgbm
 RUN pip install gunicorn
 
