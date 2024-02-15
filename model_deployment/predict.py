@@ -13,7 +13,7 @@ import pandas as pd
 # age_group_dict maps user ages
 # to specific labels (used during model training) that correspond to predefined age ranges.
 
-model_file = 'flask_airline_best_model_26.08.2023.bin'
+model_file = 'flask_airline_best_model_12.02.2024.bin'
 
 try:
     with open(model_file, 'rb') as f_in:
